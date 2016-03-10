@@ -1,7 +1,7 @@
 <html>
 <body onload="load()">
-  <center> <p id="money" style="display:inline">0 </p><p id="mps">+0</p><br><br><br>
-  <input type="button" id="clickbutton" value="1$" onclick="click()"><br><br><br>
+  <center> <p id="money" style="display:inline">0 </p><p id="mps"style="display:inline">+0</p><br><br><br>
+  <input type="button" id="clickbutton" value="1$" onclick="clicked()"><br><br><br>
   <input type="button" id="clickbutton1" value="building 1" onclick="buy1()"><br>
   <input type="button" id="clickbutton2" value="building 2" onclick="buy2()"><br>
   <input type="button" id="resetbutton" value="reset" onclick="reset()"><br>
@@ -70,7 +70,7 @@ function refresh(){
 	   
 		
 }
-function click() {
+function clicked() {
     money+=1;
 }
 function reset(){
