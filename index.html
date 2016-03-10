@@ -25,7 +25,6 @@ var Building = function(name, price,mps) {
 function load(){
 moneyt = getCookie("money");
 mpst = getCookie("mps");
-mps = 0;
 if(moneyt == "")
   {
     money = 0;
@@ -36,8 +35,10 @@ if(moneyt == "")
   }
   else
   {
-    document.getElementById("money").innerHTML = parseInt(moneyt);
-    document.getElementById("money").innerHTML = parseInt(mpst);
+  	money = parseInt(moneyt);
+  	mps =  parseInt(mpst);
+    document.getElementById("money").innerHTML = money;
+    document.getElementById("mps").innerHTML = mps;
   }
   building1 = new Building("building1",5,1);
   building2 = new Building("building2",10,2);
