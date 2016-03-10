@@ -66,12 +66,12 @@ function reset(){
 	setCookie("money", "", 0);
 }
 function buy1() {
-    money-=building1-price;
+    money-=building1.price;
     mps+=building1.mps;
     setCookie("money", money.toString(), 10);
 }
 function buy2() {
-      money-=building1-price;
+      money-=building1.price;
     mps+=building1.mps;
 	setCookie("money", money.toString(), 10);
 }
