@@ -14,12 +14,10 @@
 var money;
 var moneyt;
 
-class Building {
-  constructor(name, cost,mps) {
+var Building = function(name, cost,mps) {
     this.name = name;
     this.cost = cost;
-	this.mps = mps;
-  }
+    this.mps = mps;
 }
 function load(){
 moneyt = getCookie("money");
