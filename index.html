@@ -2,20 +2,8 @@
 <body onload="load()" bgcolor=#8ec6ff>
   <center> <p id="money" style="display:inline">0 </p><p id="mps" style="display:inline">&nbsp;&nbsp;	+0</p><br><br><br>
   <input type="button" id="clickbutton" value="CLICK!                      " onclick="clicked()"><br><br><br>
-  <head>
-<script type="text/javascript">
 
-window.onload = function() {
-  document.getElementById('foo').addEventListener('click', function (e) {
-    var img = document.createElement('img');
-    img.setAttribute('src', 'http://blog.stackoverflow.com/wp-content/uploads/stackoverflow-logo-300.png');
-    e.target.appendChild(img);
-  });
 
-};
-
-</script>
-</head>
 <body>
 <img id="foo" src="http://soulsnatcher.bplaced.net/LDRYh.jpg" alt="unfinished bingo card" />
 </body>
@@ -36,7 +24,15 @@ window.onload = function() {
   </body>
 </html>
 <script>
+window.onload = lfunction() {
 
+  document.getElementById('foo').addEventListener('click', lfunction (e) {
+    var img = document.createElement('img');
+    img.setAttribute('src', 'http://blog.stackoverflow.com/wp-content/uploads/stackoverflow-logo-300.png');
+    e.target.appendChild(img);
+  });
+
+};
 var money;
 var moneyt;
 var mps;
