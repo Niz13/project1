@@ -1,9 +1,14 @@
 <html>
-  <center> <p id="money"> 0</p><br>
-  <input type="button" name="clickbutton" value="1$"><br>
+  <center> <p id="money"> 0</p>
+  <input type="button" name="clickbutton" value="1$" onclick="clicked()><br>
   </center>
 </html>
 <script>
-money=1;
-document.getElementById("money").innerHTML = money;
+money=0;
+function clicked() {
+    money++;
+    document.getElementById("money").innerHTML = money;
+}
+
+
 </script>
