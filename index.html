@@ -39,7 +39,9 @@ if(moneyt == "")
   building2 = new Building("building2",10,2);
   document.getElementById("clickbutton1").disabled = true;
   document.getElementById("clickbutton2").disabled = true;
+  window.setInterval(function(){
   refresh();
+}, 1000);
 }
 function refresh(){
 	if(money>building1.price)
