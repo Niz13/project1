@@ -4,6 +4,7 @@
   <input type="button" name="clickbutton" value="1$" onclick="clicked1()"><br>
   <input type="button" name="clickbutton" value="5$" onclick="clicked5()"><br>
   <input type="button" name="clickbutton" value="10$" onclick="clicked10()"><br>
+  <input type="button" name="resetbutton" value="reset" onclick="reset()"><br>
   </center>
   <p id="debug">
   </body>
@@ -15,7 +16,7 @@ moneyt = getCookie("money");
 if(moneyt == "")
   {
     money = 0;
-    setCookie("money", 0, 10);
+    setCookie("money", "0", 10);
 	document.getElementById("debug").innerHTML = 1;
   }
   else
@@ -29,6 +30,10 @@ function clicked1() {
     money+=1;
     document.getElementById("money").innerHTML = money;
 	 setCookie("money", money.toString(), 10);
+}
+function reset(){
+	money=0;
+	setCookie("money", "", 10);
 }
 function clicked5() {
     money+=5;
