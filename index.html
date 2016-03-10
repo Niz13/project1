@@ -44,6 +44,7 @@ if(moneyt == "")
 }, 1000);
 }
 function refresh(){
+	money+=mps;
 	if(money>building1.price)
 		document.getElementById("clickbutton1").disabled = false;
 	else 
@@ -55,6 +56,7 @@ function refresh(){
 	document.getElementById("debug").innerHTML = 2;
 	  document.getElementById("money").innerHTML = money;
 	   document.getElementById("mps").innerHTML = "+"+mps;
+	   
 		
 }
 function clicked1() {
