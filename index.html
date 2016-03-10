@@ -1,6 +1,6 @@
 <html>
 <body onload="load()">
-  <center> <p id="money">0 </p><p id="mps">+0</p>
+  <center> <p id="money" display: inline>0 </p><p id="mps"display: inline>+0</p>
   <input type="button" id="clickbutton" value="1$" onclick="clicked1()"><br>
   <input type="button" id="clickbutton1" value="building 1" onclick="buy1()"><br>
   <input type="button" id="clickbutton2" value="building 2" onclick="buy2()"><br>
@@ -38,7 +38,7 @@ if(moneyt == "")
   	money = parseInt(moneyt);
   	mps =  parseInt(mpst);
     document.getElementById("money").innerHTML = money;
-    document.getElementById("mps").innerHTML = mps;
+    document.getElementById("mps").innerHTML = "+"+mps;
   }
   building1 = new Building("building1",5,1);
   building2 = new Building("building2",10,2);
