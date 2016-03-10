@@ -20,7 +20,6 @@ var moneyt;
 var mps;
 var mpst;
 var buildings;
-var buildingcounts;
 
 var Building = function(name, price,mps,count) {
     this.name = name;
@@ -94,8 +93,8 @@ function buy1() {
     mps+=building1.mps;
     building1.price *=1.5; 
     building1.count++;
-    document.getElementById("building1price").innerHTML = buildings[0].price;
-    document.getElementById("building1count").innerHTML = buildingscount[0];
+    document.getElementById("building1price").innerHTML = building1.price;
+    document.getElementById("building1count").innerHTML = building1.count;
     
 }
 function buy2() {
@@ -103,8 +102,8 @@ function buy2() {
     mps+=building2.mps;
     building2.price *=1.5; 
     building2.count++;
-    document.getElementById("building2price").innerHTML = buildings[1].price;
-    document.getElementById("building2count").innerHTML = buildingscount[1];
+    document.getElementById("building2price").innerHTML = building2.price;
+    document.getElementById("building2count").innerHTML = building2.count;
 }
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
