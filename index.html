@@ -36,7 +36,6 @@ if(moneyt == "")
     mps = 0;
     setCookie("money", "0", 10);
     setCookie("mps", "0", 10);
-    setCookie("test","lol",10000);
     setCookie("building1count", "0", 10);
     setCookie("building2count", "0", 10);
     
@@ -94,7 +93,7 @@ function buy1() {
     mps+=building1.mps;
     building1.price *=1.5; 
     building1.count++;
-    document.getElementById("building1price").innerHTML = building1.price;
+    document.getElementById("building1price").innerHTML = building1.price+" ";
     document.getElementById("building1count").innerHTML = building1.count;
     
 }
@@ -103,7 +102,7 @@ function buy2() {
     mps+=building2.mps;
     building2.price *=1.5; 
     building2.count++;
-    document.getElementById("building2price").innerHTML = building2.price;
+    document.getElementById("building2price").innerHTML = building2.price+" ";
     document.getElementById("building2count").innerHTML = building2.count;
 }
 function setCookie(cname,cvalue,exdays) {
