@@ -68,7 +68,7 @@ function save(){
 function refresh(){
 	money+=mps;
 	for (i = 0; i < 2; i++)
-	{if(money>=buildings[i].price)
+	{if(money >= 0 && money>=buildings[i].price)
 		document.getElementById("clickbutton"+(i+1)).disabled = false;
 	else 
 		document.getElementById("clickbutton"+(i+1)).disabled = true;
