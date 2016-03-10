@@ -14,6 +14,7 @@
 var money;
 var moneyt;
 var mps;
+var mpst;
 var buildings;
 
 var Building = function(name, price,mps) {
@@ -23,38 +24,41 @@ var Building = function(name, price,mps) {
 }
 function load(){
 moneyt = getCookie("money");
+moneyt = getCookie("mps");
 mps = 0;
 if(moneyt == "")
   {
     money = 0;
+    mps = 0;
     setCookie("money", "0", 10);
+    setCookie("mps", "0", 10);
 	document.getElementById("debug").innerHTML = 1;
   }
   else
   {
     money = parseInt(moneyt);
-
-	document.getElementById("money").innerHTML = money;
+    money = parseInt(mpst);
+    document.getElementById("money").innerHTML = money;
+    document.getElementById("money").innerHTML = mps;
   }
   building1 = new Building("building1",5,1);
   building2 = new Building("building2",10,2);
   buildings = [building1,building2];
-  document.getElementById("clickbutton1").disabled = true;
-  document.getElementById("clickbutton2").disabled = true;
+  for (i = 0; i < 2; i++)
+  {
+   document.getElementById("clickbutton"+(i+1)).disabled = true;
+  }
   window.setInterval(function(){
   refresh();
+  save();
 }, 1000);
+function save(){
+	 setCookie("money", money.toString(), 10);
+	 setCookie("mps", mps.toString(), 10);
+}
 }
 function refresh(){
 	money+=mps;
-	/*if(money>building1.price)
-		document.getElementById("clickbutton1").disabled = false;
-	else 
-		document.getElementById("clickbutton1").disabled = true;
-	if(money>building2.price)
-		document.getElementById("clickbutton2").disabled = false;
-	else 
-		document.getElementById("clickbutton2").disabled = true;*/
 	for (i = 0; i < 2; i++)
 	{if(money>buildings[i].price)
 		document.getElementById("clickbutton"+(i+1)).disabled = false;
@@ -62,16 +66,13 @@ function refresh(){
 		document.getElementById("clickbutton"+(i+1)).disabled = true;
 	}
 	document.getElementById("debug").innerHTML = 2;
-	  document.getElementById("money").innerHTML = money;
-	   document.getElementById("mps").innerHTML = "+"+mps;
+	document.getElementById("money").innerHTML = money;
+	document.getElementById("mps").innerHTML = "+"+mps;
 	   
 		
 }
 function clicked1() {
     money+=1;
-    document.getElementById("money").innerHTML = money;
-	 setCookie("money", money.toString(), 10);
-	 refresh();
 }
 function reset(){
 	money=0;
@@ -80,12 +81,10 @@ function reset(){
 function buy1() {
     money-=building1.price;
     mps+=building1.mps;
-    setCookie("money", money.toString(), 10);
 }
 function buy2() {
       money-=building1.price;
     mps+=building1.mps;
-	setCookie("money", money.toString(), 10);
 }
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
