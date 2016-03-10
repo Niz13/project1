@@ -1,14 +1,23 @@
 <html>
   <center> <p id="money"> 0</p>
-  <input type="button" name="clickbutton" value="1$" onclick="clicked()"><br>
+  <input type="button" name="clickbutton" value="1$" onclick="clicked1()"><br>
+  <input type="button" name="clickbutton" value="5$" onclick="clicked5()"><br>
+  <input type="button" name="clickbutton" value="10$" onclick="clicked10()"><br>
   </center>
 </html>
 <script>
-money=5;
-function clicked() {
+money=0;
+function clicked1() {
     money+=1;
     document.getElementById("money").innerHTML = money;
 }
-
+function clicked5() {
+    money+=5;
+    document.getElementById("money").innerHTML = money;
+}
+function clicked10() {
+    money+=10;
+    document.getElementById("money").innerHTML = money;
+}
 
 </script>
