@@ -2,16 +2,25 @@
 <body onload="load()">
   <center> <p id="money"> 0</p>
   <input type="button" name="clickbutton" value="1$" onclick="clicked1()"><br>
-  <input type="button" name="clickbutton" value="building 1" onclick="buy1()" disabled><br>
-  <input type="button" name="clickbutton" value="building 2" onclick="buy2()" disabled><br>
+  <input type="button" name="clickbutton1" value="building 1" onclick="buy1()" disabled><br>
+  <input type="button" name="clickbutton2" value="building 2" onclick="buy2()" disabled><br>
   <input type="button" name="resetbutton" value="reset" onclick="reset()"><br>
   </center>
   <p id="debug">
   </body>
 </html>
 <script>
+
 var money;
 var moneyt;
+
+class Building {
+  constructor(name, cost,mps) {
+    this.name = name;
+    this.cost = cost;
+	this.mps = mps;
+  }
+}
 function load(){
 moneyt = getCookie("money");
 if(moneyt == "")
@@ -26,12 +35,19 @@ if(moneyt == "")
 	document.getElementById("debug").innerHTML = 2;
 	document.getElementById("money").innerHTML = money;
   }
+  building1 = new Building("building1",5,1);
+  building2 = new Building("building2",10,2);
 }
-
+function check(){
+	if(money>building1.price)
+		clickbutton1.enabled = true;
+		
+}
 function clicked1() {
     money+=1;
     document.getElementById("money").innerHTML = money;
 	 setCookie("money", money.toString(), 10);
+	 check();
 }
 function reset(){
 	money=0;
