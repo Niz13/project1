@@ -95,8 +95,8 @@ function buy(bnum){
     mps+=buildings[bnum].mps;
     buildings[bnum].price *=1.5; 
     buildings[bnum].count++;
-    document.getElementById("building1price").innerHTML = buildings[bnum].price+"	";
-    document.getElementById("building1count").innerHTML = buildings[bnum].count;
+    document.getElementById("building"+(bnum+1)+"price").innerHTML = buildings[bnum].price+"	";
+    document.getElementById("building"+(bnum+1)+"count").innerHTML = buildings[bnum].count;
 }
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
