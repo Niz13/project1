@@ -37,6 +37,7 @@ if(moneyt == "")
   }
   building1 = new Building("building1",5,1);
   building2 = new Building("building2",10,2);
+  var buildings = [building1,building2];
   document.getElementById("clickbutton1").disabled = true;
   document.getElementById("clickbutton2").disabled = true;
   window.setInterval(function(){
@@ -45,14 +46,20 @@ if(moneyt == "")
 }
 function refresh(){
 	money+=mps;
-	if(money>building1.price)
+	/*if(money>building1.price)
 		document.getElementById("clickbutton1").disabled = false;
 	else 
 		document.getElementById("clickbutton1").disabled = true;
 	if(money>building2.price)
 		document.getElementById("clickbutton2").disabled = false;
 	else 
-		document.getElementById("clickbutton2").disabled = true;
+		document.getElementById("clickbutton2").disabled = true;*/
+	for (i = 0; i < 2; i++)
+	{if(money>buildings[i].price)
+		document.getElementById("clickbutton"+(i+1)).disabled = false;
+	else 
+		document.getElementById("clickbutton"+(i+1)).disabled = true;
+	}
 	document.getElementById("debug").innerHTML = 2;
 	  document.getElementById("money").innerHTML = money;
 	   document.getElementById("mps").innerHTML = "+"+mps;
