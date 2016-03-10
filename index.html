@@ -38,9 +38,9 @@ if(moneyt == "")
 }
 function check(){
 	if(money>building1.price)
-		document.getElementById("clickbutton1").disabled = false;
+		document.getElementById("clickbutton1").innerHTML.disabled = false;
 	else 
-		document.getElementById("clickbutton1").disabled = true;
+		document.getElementById("clickbutton1").innerHTML.disabled = true;
 		document.getElementById("debug").innerHTML = 2;
 		
 }
