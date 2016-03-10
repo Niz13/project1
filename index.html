@@ -1,23 +1,42 @@
+<!DOCTYPE html>
 <html>
-  <center> <p id="money"> 0</p>
-  <input type="button" name="clickbutton" value="1$" onclick="clicked1()"><br>
-  <input type="button" name="clickbutton" value="5$" onclick="clicked5()"><br>
-  <input type="button" name="clickbutton" value="10$" onclick="clicked10()"><br>
-  </center>
-</html>
+<head>
 <script>
-money=0;
-function clicked1() {
-    money+=1;
-    document.getElementById("money").innerHTML = money;
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
 }
-function clicked5() {
-    money+=5;
-    document.getElementById("money").innerHTML = money;
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
-function clicked10() {
-    money+=10;
-    document.getElementById("money").innerHTML = money;
+
+function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 30);
+       }
+    }
 }
 
 </script>
+</head>
+<body onload="checkCookie()">
+</body>
+</html>
