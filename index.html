@@ -14,9 +14,9 @@
 var money;
 var moneyt;
 
-var Building = function(name, cost,mps) {
+var Building = function(name, price,mps) {
     this.name = name;
-    this.cost = cost;
+    this.price = price;
     this.mps = mps;
 }
 function load(){
@@ -43,7 +43,7 @@ function check(){
 	if(money>building1.price)
 		document.getElementById("clickbutton1").disabled = false;
 	else 
-		document.getElementById("clickbutton1").disabled = false;
+		document.getElementById("clickbutton1").disabled = true;
 	document.getElementById("debug").innerHTML = 2;
 		
 }
