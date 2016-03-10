@@ -30,7 +30,7 @@ if(moneyt == "")
   else
   {
     money = parseInt(moneyt);
-	document.getElementById("debug").innerHTML = 2;
+
 	document.getElementById("money").innerHTML = money;
   }
   building1 = new Building("building1",5,1);
@@ -39,6 +39,7 @@ if(moneyt == "")
 function check(){
 	if(money>building1.price)
 		clickbutton1.enabled = true;
+		document.getElementById("debug").innerHTML = 2;
 		
 }
 function clicked1() {
