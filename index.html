@@ -7,10 +7,10 @@
   <p id="building1price" style="display:inline">5 </p><p id="building1count"style="display:inline"> 0</p><br>
   
   <input type="button" id="clickbutton2" value="building 2" onclick="buy(1)">
-  <p id="building2price" style="display:inline">10 </p><p id="building2count"style="display:inline"> 0</p><br><br><br><br><br><br>
+  <p id="building2price" style="display:inline">10 </p><p id="building2count"style="display:inline"> 0</p><br>
   
   <input type="button" id="clickbutton3" value="building 3" onclick="buy(2)">
-  <p id="building3price" style="display:inline">10 </p><p id="building3count"style="display:inline"> 0</p>
+  <p id="building3price" style="display:inline">10 </p><p id="building3count"style="display:inline"> 0</p><br><br><br><br><br>
   
   <input type="button" id="resetbutton" value="reset" onclick="reset()"><br>
   <p id="debug">
@@ -52,8 +52,9 @@ if(moneyt == "")
   building1 = new Building("building1",5,1,parseInt(getCookie("building1count")));
   building2 = new Building("building2",10,2,parseInt(getCookie("building2count")));
   building3 = new Building("building3",15,3,parseInt(getCookie("building3count")));
+calcPrices();
   buildings = [building1,building2,building3]
-  calcPrices();
+  buildingcounts = [0,0];
   for (i = 0; i < buildingcount; i++)
   {
    document.getElementById("clickbutton"+(i+1)).disabled = true;
