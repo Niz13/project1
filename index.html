@@ -59,14 +59,21 @@ if(moneyt == "")
   window.setInterval(function(){
   refresh();
   save();
+}, 100);
+  window.setInterval(function(){
+  addmps();
 }, 1000);
+}
+function addmps(){
+	money+=mps;
+}
 function save(){
 	 setCookie("money", money.toString(), 10);
 	 setCookie("mps", mps.toString(), 10);
-}
+
 }
 function refresh(){
-	money+=mps;
+	
 	for (i = 0; i < 2; i++)
 	{if(money >= 0 && money>=buildings[i].price)
 		document.getElementById("clickbutton"+(i+1)).disabled = false;
@@ -95,7 +102,7 @@ function buy(bnum){
     mps+=buildings[bnum].mps;
     buildings[bnum].price *=1.5; 
     buildings[bnum].count++;
-    document.getElementById("building"+(bnum+1)+"price").innerHTML = buildings[bnum].price+"	";
+    document.getElementById("building"+(bnum+1)+"price").innerHTML = buildings[bnum].price.toFixed(2)+"	";
     document.getElementById("building"+(bnum+1)+"count").innerHTML = buildings[bnum].count;
 }
 function setCookie(cname,cvalue,exdays) {
