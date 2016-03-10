@@ -14,6 +14,7 @@
 var money;
 var moneyt;
 var mps;
+var buildings;
 
 var Building = function(name, price,mps) {
     this.name = name;
@@ -37,7 +38,7 @@ if(moneyt == "")
   }
   building1 = new Building("building1",5,1);
   building2 = new Building("building2",10,2);
-  var buildings = [building1,building2];
+  buildings = [building1,building2];
   document.getElementById("clickbutton1").disabled = true;
   document.getElementById("clickbutton2").disabled = true;
   window.setInterval(function(){
