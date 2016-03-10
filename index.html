@@ -23,32 +23,22 @@ if(moneyt == "")
     money = parseInt("moneyt");
 	document.getElementById("debug").innerHTML = 2;
   }
-  document.cookie="money=John Doe; expires='360000000'";
-  moneyt = getCookie("money");
- if(moneyt != "")
-  {
-	document.getElementById("debug").innerHTML = 1;
-  }
-  else
-  {
-	document.getElementById("debug").innerHTML = 2;
-  }
 }
 
 function clicked1() {
     money+=1;
     document.getElementById("money").innerHTML = money;
-	 //setCookie("money", money.toString(), 10);
+	 setCookie("money", money.toString(), 10);
 }
 function clicked5() {
     money+=5;
     document.getElementById("money").innerHTML = money;
-		// setCookie("money", money.toString(), 10);
+	setCookie("money", money.toString(), 10);
 }
 function clicked10() {
     money+=10;
     document.getElementById("money").innerHTML = money;
-		 //setCookie("money", money.toString(), 10);
+	setCookie("money", money.toString(), 10);
 }
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
