@@ -1,6 +1,6 @@
 <html>
 <body onload="load()">
-  <center> <p id="money"> 0</p>
+  <center> <p id="money">0 </p><p id="mps">+0</p>
   <input type="button" id="clickbutton" value="1$" onclick="clicked1()"><br>
   <input type="button" id="clickbutton1" value="building 1" onclick="buy1()"><br>
   <input type="button" id="clickbutton2" value="building 2" onclick="buy2()"><br>
@@ -13,6 +13,7 @@
 
 var money;
 var moneyt;
+var mps;
 
 var Building = function(name, price,mps) {
     this.name = name;
@@ -21,6 +22,7 @@ var Building = function(name, price,mps) {
 }
 function load(){
 moneyt = getCookie("money");
+mps = 0;
 if(moneyt == "")
   {
     money = 0;
@@ -37,34 +39,40 @@ if(moneyt == "")
   building2 = new Building("building2",10,2);
   document.getElementById("clickbutton1").disabled = true;
   document.getElementById("clickbutton2").disabled = true;
-  check();
+  refresh();
 }
-function check(){
+function refresh(){
 	if(money>building1.price)
 		document.getElementById("clickbutton1").disabled = false;
 	else 
 		document.getElementById("clickbutton1").disabled = true;
+	if(money>building2.price)
+		document.getElementById("clickbutton2").disabled = false;
+	else 
+		document.getElementById("clickbutton2").disabled = true;
 	document.getElementById("debug").innerHTML = 2;
+	  document.getElementById("money").innerHTML = money;
+	   document.getElementById("mps").innerHTML = "+"+mps;
 		
 }
 function clicked1() {
     money+=1;
     document.getElementById("money").innerHTML = money;
 	 setCookie("money", money.toString(), 10);
-	 check();
+	 refresh();
 }
 function reset(){
 	money=0;
 	setCookie("money", "", 0);
 }
 function buy1() {
-    money+=5;
-    document.getElementById("money").innerHTML = money;
-	setCookie("money", money.toString(), 10);
+    money-=building1-price;
+    mps+=building1.mps;
+    setCookie("money", money.toString(), 10);
 }
 function buy2() {
-    money+=10;
-    document.getElementById("money").innerHTML = money;
+      money-=building1-price;
+    mps+=building1.mps;
 	setCookie("money", money.toString(), 10);
 }
 function setCookie(cname,cvalue,exdays) {
