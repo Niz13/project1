@@ -1,6 +1,6 @@
 <html>
 <body onload="load()" bgcolor=#8ec6ff>
-  <center> <p id="money" style="display:inline">0 </p><p id="mps" style="display:inline"><pre>	+0</p><br><br><br>
+  <center> <p id="money" style="display:inline">0 </p><p id="mps" style="display:inline">&nbsp;&nbsp;	+0</p><br><br><br>
   <input type="button" id="clickbutton" value="1$" onclick="clicked()"><br><br><br>
   </center>
   <input type="button" id="clickbutton1" value="building 1" onclick="buy(0)">
@@ -24,6 +24,7 @@ var buildings;
 var Building = function(name, price,mps,count) {
     this.name = name;
     this.price = price;
+    this.init_price = price;
     this.mps = mps;
     this.count = count;
 }
@@ -65,19 +66,26 @@ function addmps(){
 function save(){
 	 setCookie("money", money.toString(), 10);
 	 setCookie("mps", mps.toString(), 10);
+	 for(int i=0;i<2;i++){
+	   setCookie("building"+(i+1)+"count", buildings[i].count, 10);
+	 }
 
 }
 function refresh(){
 	
 	for (i = 0; i < 2; i++)
-	{if(money >= 0 && money>=buildings[i].price)
+	{
+	if(money >= 0 && money>=buildings[i].price)
 		document.getElementById("clickbutton"+(i+1)).disabled = false;
 	else 
 		document.getElementById("clickbutton"+(i+1)).disabled = true;
+	document.getElementById("building"+(i+1)+"price").innerHTML = buildings[i].price.toFixed(1)+"	";
+	document.getElementById("building"+(i+1)+"count").innerHTML = buildings[i].count;
 	}
 	document.getElementById("debug").innerHTML = 2;
 	document.getElementById("money").innerHTML = money.toFixed(1);
 	document.getElementById("mps").innerHTML = "+"+mps;
+
 	   
 		
 }
@@ -89,16 +97,18 @@ function reset(){
 	mps=0;
 	setCookie("money", "", 0);
 	setCookie("mps", "", 0);
-	    setCookie("building1count", "0", 10);
-    setCookie("building2count", "0", 10);
+	for(int i=0;i<2;i++0){
+	     setCookie("building"+(i+1)+"count", 0, 10);
+	     building[i].price = building[i].init_price;
+	}
+
 }
 function buy(bnum){
     money-=buildings[bnum].price;
     mps+=buildings[bnum].mps;
     buildings[bnum].price *=1.5; 
     buildings[bnum].count++;
-    document.getElementById("building"+(bnum+1)+"price").innerHTML = buildings[bnum].price.toFixed(1)+"	";
-    document.getElementById("building"+(bnum+1)+"count").innerHTML = buildings[bnum].count;
+
 }
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
