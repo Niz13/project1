@@ -211,6 +211,7 @@ function reset(){
 	for(i=0;i<buildingcount;i++){
 		buildings[i].price = buildings[i].init_price;
 		buildings[i].count = 0;
+		buildings[i].upgrades = 0;
 		remove("building"+(i+1)+"count");
 		remove("building"+(i+1)+"upgrades");
 		
