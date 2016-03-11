@@ -199,7 +199,7 @@ function handleupgrades(){
 	   }
 }
 function save(){
-         store("lastsave",(new Date).toString());
+         store("lastsave",(new Date).getTime().toString());
 	 store("money", money.toString());
 	 store("clicks", clicks.toString());
 	 store("clickUpgrades", clickUpgrades.toString());
