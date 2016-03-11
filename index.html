@@ -133,14 +133,13 @@ function clicked() {
 function reset(){
 	money=0;
 	mps=0;
-	store("money", "0");
-	store("mps", "0");
-	store("clicks", "0");
+	remove("money");
+	remove("mps");
+	remove("clicks");
 	for(i=0;i<buildingcount;i++){
 		buildings[i].price = buildings[i].init_price;
 		buildings[i].count = 0;
-		 store("building"+(i+1)+"count", "0");
-	     
+		remove("building"+(i+1)+"count");
 	}
 
 }
@@ -150,6 +149,9 @@ function buy(bnum){
     buildings[bnum].price *=1.5; 
     buildings[bnum].count++;
 
+}
+function remove(cname){
+	localStorage.removeItem(cname);
 }
 function store(cname,cvalue) {
 	localStorage.setItem(cname, cvalue);
