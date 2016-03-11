@@ -275,6 +275,7 @@ function addMPS(){
 function upgrade(building,upgrade){
 	if(building ==-1){
 		clickUpgrades++;
+		money-=500;
 		return;
 	}
 	buildings[building].upgrades++;
