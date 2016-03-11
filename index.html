@@ -11,6 +11,7 @@ td {
   <center> <p id="money" style="display:inline">0 </p><p id="mps" style="display:inline">&nbsp;&nbsp;	+0</p><br><br><br>
   <input type="button" id="clickbutton" value="1$" onclick="clicked()"><br><br><br>
   </center>
+  <h1>Buildings:</h1>
  <table>
   <tr>
   <td><input type="button" id="clickbutton1" value="building 1" onclick="buy(0)"></td>
@@ -33,8 +34,20 @@ td {
   <td><p id="building4count"style="display:inline"> 0</p><br></td>
   </tr>
   </table>
+  <h1>Upgrades:</h1>
+  <table>
+  <tr>
+  <td>Clicking</td>
+  <td> <input type="button" value="1" onclick="upgrade(0,1)" title="1000"></td>
+  <td> <input type="button" value="2" onclick="upgrade(0,2)" title="1000"></td>
+  <td> <input type="button" value="3" onclick="upgrade(0,3)" title="1000"></td>
+  <td> <input type="button" value="4" onclick="upgrade(0,4)" title="1000"></td>
+  <td> <input type="button" value="5" onclick="upgrade(0,5)" title="1000"></td>
+  </tr>
+  </table>
   <input type="button" id="stats" value="stats" onclick="stats()"><br>
   <input type="button" id="resetbutton" value="reset" onclick="reset()"><br>
+  
   <p id="debug">
   </body>
 </html>
