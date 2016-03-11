@@ -233,17 +233,8 @@ function refresh(){
 function clicked() {
     money+=clickpower;
     clicks++;
-    width = clicks%100;
-    var elem = document.getElementById("myBar");   
-    if (width == 100) {
-      width=0;
+    var elem = document.getElementById("myBar").style.width = clicks%100 + '%';   
     }
-    elem.style.width = width + '%'; 
-    	
-       
-      
-    }
-}
 function reset(){
 	money=0;
 	clicks=0;
