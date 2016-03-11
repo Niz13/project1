@@ -28,6 +28,7 @@
   <input type="button" id="clickbutton4" value="building 4" onclick="buy(3)">
   <p id="building4price" style="display:inline">20 </p><p id="building4count"style="display:inline"> 0</p><br><br><br><br><br><br>
   
+  <input type="button" id="stats" value="stats" onclick="stats()"><br>
   <input type="button" id="resetbutton" value="reset" onclick="reset()"><br>
   <p id="debug">
   </body>
@@ -36,6 +37,7 @@
 var money;
 var moneyt;
 var mps;
+var clicks;
 var mpst;
 var buildings;
 var buildingcount=4;
@@ -49,13 +51,13 @@ var Building = function(name, price,mps,count) {
 }
 function load(){
 moneyt = retrieve("money");
-mpst = retrieve("mps");
 if(moneyt == "")
   {
     money = 0;
     mps = 0;
     store("money", "0", 10);
     store("mps", "0", 10);
+    store("clicks", "0", 10);
     store("building1count", "0");
     store("building2count", "0");
     store("building3count", "0");
@@ -64,7 +66,7 @@ if(moneyt == "")
 	document.getElementById("debug").innerHTML = 1;
   }
   money = parseInt(moneyt);
-  mps =  parseInt(mpst);
+  mps =  parseInt(retrieve("mps"));
   building1 = new Building("building1",5,1,parseInt(retrieve("building1count")));
   building2 = new Building("building2",10,2,parseInt(retrieve("building2count")));
   building3 = new Building("building3",15,3,parseInt(retrieve("building3count")));
@@ -95,10 +97,14 @@ function addmps(){
 function save(){
 	 store("money", money.toString());
 	 store("mps", mps.toString());
+	 store("mps", clicks.toString());
 	 for(i=0;i<buildingcount;i++){
 	   store("building"+(i+1)+"count", buildings[i].count);
 	 }
 
+}
+function stats(){
+	window.alert("You clicked "+clicks+" times!");
 }
 function refresh(){
 	
@@ -120,6 +126,7 @@ function refresh(){
 }
 function clicked() {
     money+=1;
+    clicks++;
 }
 function reset(){
 	money=0;
