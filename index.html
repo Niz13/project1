@@ -51,7 +51,7 @@ var Building = function(name, price,mps,count) {
 }
 function load(){
 moneyt = retrieve("money");
-if(moneyt == "")
+if(moneyt == null)
   {
     money = 0;
     mps = 0;
