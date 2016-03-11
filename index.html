@@ -38,43 +38,43 @@ td {
   <table>
   <tr>
   <td>Clicking</td>
-  <td> <input type="button" value="1" onclick="upgrade(-1,1)" title="500"></td>
-  <td> <input type="button" value="2" onclick="upgrade(-1,2)" title="500"></td>
-  <td> <input type="button" value="3" onclick="upgrade(-1,3)" title="500"></td>
-  <td> <input type="button" value="4" onclick="upgrade(-1,4)" title="500"></td>
-  <td> <input type="button" value="5" onclick="upgrade(-1,5)" title="500"></td>
+  <td> <input type="button" id="cupgrade1" value="1" onclick="upgrade(-1,1)" title="500"></td>
+  <td> <input type="button" id="cupgrade2" value="2" onclick="upgrade(-1,2)" title="500"></td>
+  <td> <input type="button" id="cupgrade3" value="3" onclick="upgrade(-1,3)" title="500"></td>
+  <td> <input type="button" id="cupgrade4" value="4" onclick="upgrade(-1,4)" title="500"></td>
+  <td> <input type="button" id="cupgrade5"value="5" onclick="upgrade(-1,5)" title="500"></td>
   </tr>
    <tr>
   <td>Building 1</td>
-  <td> <input type="button" value="1" onclick="upgrade(0,1)" title="1000"></td>
-  <td> <input type="button" value="2" onclick="upgrade(0,2)" title="1000"></td>
-  <td> <input type="button" value="3" onclick="upgrade(0,3)" title="1000"></td>
-  <td> <input type="button" value="4" onclick="upgrade(0,4)" title="1000"></td>
-  <td> <input type="button" value="5" onclick="upgrade(0,5)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade1" value="1" onclick="upgrade(0,1)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade2" value="2" onclick="upgrade(0,2)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade3" value="3" onclick="upgrade(0,3)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade4" value="4" onclick="upgrade(0,4)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade5" value="5" onclick="upgrade(0,5)" title="1000"></td>
   </tr>
   <tr>
   <td>Building 2</td>
-  <td> <input type="button" value="1" onclick="upgrade(1,1)" title="2000"></td>
-  <td> <input type="button" value="2" onclick="upgrade(1,2)" title="2000"></td>
-  <td> <input type="button" value="3" onclick="upgrade(1,3)" title="2000"></td>
-  <td> <input type="button" value="4" onclick="upgrade(1,4)" title="2000"></td>
-  <td> <input type="button" value="5" onclick="upgrade(1,5)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade1" value="1" onclick="upgrade(1,1)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade2" value="2" onclick="upgrade(1,2)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade3" value="3" onclick="upgrade(1,3)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade4" value="4" onclick="upgrade(1,4)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade5" value="5" onclick="upgrade(1,5)" title="2000"></td>
   </tr>
    <tr>
   <td>Building 3</td>
-  <td> <input type="button" value="1" onclick="upgrade(2,1)" title="3000"></td>
-  <td> <input type="button" value="2" onclick="upgrade(2,2)" title="3000"></td>
-  <td> <input type="button" value="3" onclick="upgrade(2,3)" title="3000"></td>
-  <td> <input type="button" value="4" onclick="upgrade(2,4)" title="3000"></td>
-  <td> <input type="button" value="5" onclick="upgrade(2,5)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade1" value="1" onclick="upgrade(2,1)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade2" value="2" onclick="upgrade(2,2)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade3" value="3" onclick="upgrade(2,3)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade4" value="4" onclick="upgrade(2,4)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade5" value="5" onclick="upgrade(2,5)" title="3000"></td>
   </tr>
      <tr>
   <td>Building 4</td>
-  <td> <input type="button" value="1" onclick="upgrade(3,1)" title="4000"></td>
-  <td> <input type="button" value="2" onclick="upgrade(3,2)" title="4000"></td>
-  <td> <input type="button" value="3" onclick="upgrade(3,3)" title="4000"></td>
-  <td> <input type="button" value="4" onclick="upgrade(3,4)" title="4000"></td>
-  <td> <input type="button" value="5" onclick="upgrade(3,5)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade1" value="1" onclick="upgrade(3,1)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade2" value="2" onclick="upgrade(3,2)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade3" value="3" onclick="upgrade(3,3)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade4" value="4" onclick="upgrade(3,4)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade5" value="5" onclick="upgrade(3,5)" title="4000"></td>
   </tr>
   </table>
   <input type="button" id="stats" value="stats" onclick="stats()"><br>
@@ -87,16 +87,18 @@ td {
 var money;
 var mps;
 var clicks;
+var clickPower;
 var mpst;
 var buildings;
 var buildingcount=4;
 
-var Building = function(name, price,mps,count) {
+var Building = function(name, price,mps,count,upgrades) {
     this.name = name;
     this.price = price;
     this.init_price = price;
     this.mps = mps;
     this.count = count;
+    this.upgrades = upgrades;
 }
 function load(){
 first_flag = retrieve("first_flag");
@@ -106,23 +108,28 @@ if(first_flag == null)
     store("money", "0");
     store("mps", "0");
     store("clicks", "0");
+    store("clickupgrades", "0");
     store("building1count", "0");
+    store("building1upgrades", "0");
     store("building2count", "0");
+    store("building2upgrades", "0");
     store("building3count", "0");
+    store("building3upgrades", "0");
     store("building4count", "0");
+    store("building4upgrades", "0");
     
 	document.getElementById("debug").innerHTML = 1;
   }
   money = parseInt(retrieve("money"));
   mps =  parseInt(retrieve("mps"));
   clicks =  parseInt(retrieve("clicks"));
-  building1 = new Building("building1",5,1,parseInt(retrieve("building1count")));
-  building2 = new Building("building2",10,2,parseInt(retrieve("building2count")));
-  building3 = new Building("building3",15,3,parseInt(retrieve("building3count")));
-  building4 = new Building("building4",20,4,parseInt(retrieve("building4count")));
-    buildings = [building1,building2,building3,building4]
-calcPrices();
-
+  building1 = new Building("building1",5,1,parseInt(retrieve("building1count")),parseInt(retrieve("building1upgrades")));
+  building2 = new Building("building2",10,2,parseInt(retrieve("building2count")),parseInt(retrieve("building2upgrades")));
+  building3 = new Building("building3",15,3,parseInt(retrieve("building3count")),parseInt(retrieve("building3upgrades")));
+  building4 = new Building("building4",20,4,parseInt(retrieve("building4count")),parseInt(retrieve("building4upgrades")));
+  buildings = [building1,building2,building3,building4]
+  calcPrices();
+  handleupgrades();
   for (i = 0; i < buildingcount; i++)
   {
    document.getElementById("clickbutton"+(i+1)).disabled = true;
@@ -138,6 +145,13 @@ calcPrices();
 function calcPrices(){
 	 for(i=0;i<buildingcount;i++){
 	   buildings[i].price= buildings[i].price*Math.pow(1.5, buildings[i].count);
+	 }
+}
+function handleupgrades(){
+	for(i=0;i<buildingcount;i++){
+	   for(j=0;j<buildings[i].upgrades;i++){
+	   	
+	   }
 	 }
 }
 function addmps(){
