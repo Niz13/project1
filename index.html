@@ -215,6 +215,7 @@ function reset(){
 		remove("building"+(i+1)+"upgrades");
 		
 	}
+	refresh();
 
 }
 function buy(bnum){
@@ -226,6 +227,7 @@ function buy(bnum){
 }
 function upgrade(building,upgrade){
 	buildings[building].upgrades++;
+	refresh();
 }
 function remove(cname){
 	localStorage.removeItem(cname);
