@@ -156,7 +156,7 @@ function handleupgrades(){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#00cc00';
 	   }
 	   if(j < 5  && money >= 0 && money>=buildings[i].upgradesPrice){
-	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).enabled = true;
+	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = false;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='initial';
 	   	j++;
 	   }
