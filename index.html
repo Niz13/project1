@@ -108,7 +108,7 @@ if(first_flag == null)
   {
     store("first_flag", "0");
     store("money", "0");
-    store("mps", "0");
+    //store("mps", "0");
     store("clicks", "0");
     store("clickUpgrades", "0");
     store("building1count", "0");
@@ -123,7 +123,7 @@ if(first_flag == null)
 	document.getElementById("debug").innerHTML = 1;
   }
   money = parseInt(retrieve("money"));
-  mps =  parseInt(retrieve("mps"));
+  //mps =  parseInt(retrieve("mps"));
   clicks =  parseInt(retrieve("clicks"));
   clickUpgrades = parseInt(retrieve("clickUpgrades"));
   building1 = new Building("building1",5,1,parseInt(retrieve("building1count")),parseInt(retrieve("building1upgrades")),1000);
@@ -132,6 +132,7 @@ if(first_flag == null)
   building4 = new Building("building4",20,4,parseInt(retrieve("building4count")),parseInt(retrieve("building4upgrades")),4000);
   buildings = [building1,building2,building3,building4]
   calcPrices();
+  calcMPS();
   handleupgrades();
   for (i = 0; i < buildingcount; i++)
   {
@@ -167,7 +168,7 @@ function handleupgrades(){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#ff0000';
 	   }
 	 }
-	for(j=0;j<5;j++){
+	for(j=0;j<clickupgrades;j++){
 	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='#00cc00';
 	   }
@@ -186,7 +187,7 @@ function addmps(){
 }
 function save(){
 	 store("money", money.toString());
-	 store("mps", mps.toString());
+	 //store("mps", mps.toString());
 	 store("clicks", clicks.toString());
 	 for(i=0;i<buildingcount;i++){
 	   store("building"+(i+1)+"count", buildings[i].count);
@@ -219,10 +220,10 @@ function clicked() {
 }
 function reset(){
 	money=0;
-	mps=0;
+	//mps=0;
 	clicks=0;
 	remove("money");
-	remove("mps");
+	//remove("mps");
 	remove("clicks");
 	for(i=0;i<buildingcount;i++){
 		buildings[i].price = buildings[i].init_price;
@@ -237,10 +238,15 @@ function reset(){
 }
 function buy(bnum){
     money-=buildings[bnum].price;
-    mps+=buildings[bnum].mps;
+    //mps+=buildings[bnum].mps;
     buildings[bnum].price *=1.5; 
     buildings[bnum].count++;
 
+}
+function calcMPS(){
+	for(i=0;i<buildingcount;i++){
+		mps+=buildings[i].mps * (buildings[i].upgrades+1)*buildings[bnum].count;
+	}
 }
 function upgrade(building,upgrade){
 	buildings[building].upgrades++;
