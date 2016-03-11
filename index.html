@@ -149,7 +149,7 @@ function calcPrices(){
 }
 function handleupgrades(){
 	for(i=0;i<buildingcount;i++){
-	   for(j=0;j<buildings[i].upgrades;i++){
+	   for(j=0;j<5;i++){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = true;
 	   }
 	 }
@@ -163,6 +163,7 @@ function save(){
 	 store("clicks", clicks.toString());
 	 for(i=0;i<buildingcount;i++){
 	   store("building"+(i+1)+"count", buildings[i].count);
+	   store("building"+(i+1)+"upgrades", buildings[i].upgrades);
 	 }
 
 }
