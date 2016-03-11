@@ -213,7 +213,7 @@ function buy(bnum){
 
 }
 function upgrade(building,upgrade){
-	buildings[0]++;
+	buildings[building].upgrades++;
 }
 function remove(cname){
 	localStorage.removeItem(cname);
