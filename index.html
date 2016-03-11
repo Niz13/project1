@@ -199,8 +199,10 @@ function handleupgrades(){
 	   }
 }
 function save(){
+         
 	 store("money", money.toString());
 	 store("clicks", clicks.toString());
+	 store("clickUpgrades", clickUpgrades.toString());
 	 for(i=0;i<buildingcount;i++){
 	   store("building"+(i+1)+"count", buildings[i].count);
 	   store("building"+(i+1)+"upgrades", buildings[i].upgrades);
