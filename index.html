@@ -154,6 +154,7 @@ if(first_flag == null)
   }
   diff = parseInt((new Date).getTime().toString()) - parseInt(retrieve("lastsave"));
    store("diff",diff/1000);
+   money+=mps*Math.floor(diff/1000);
   window.setInterval(function(){
   refresh();
   save();
