@@ -87,6 +87,7 @@ td {
 var money;
 var mps;
 var clicks;
+var clickUpgrades;
 var clickPower;
 var mpst;
 var buildings;
@@ -109,7 +110,7 @@ if(first_flag == null)
     store("money", "0");
     store("mps", "0");
     store("clicks", "0");
-    store("clickupgrades", "0");
+    store("clickUpgrades", "0");
     store("building1count", "0");
     store("building1upgrades", "0");
     store("building2count", "0");
@@ -124,6 +125,7 @@ if(first_flag == null)
   money = parseInt(retrieve("money"));
   mps =  parseInt(retrieve("mps"));
   clicks =  parseInt(retrieve("clicks"));
+  clickUpgrades = parseInt(retrieve("clickUpgrades"));
   building1 = new Building("building1",5,1,parseInt(retrieve("building1count")),parseInt(retrieve("building1upgrades")),1000);
   building2 = new Building("building2",10,2,parseInt(retrieve("building2count")),parseInt(retrieve("building2upgrades")),2000);
   building3 = new Building("building3",15,3,parseInt(retrieve("building3count")),parseInt(retrieve("building3upgrades")),3000);
@@ -165,6 +167,19 @@ function handleupgrades(){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#ff0000';
 	   }
 	 }
+	for(j=0;j<5;j++){
+	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
+	   	document.getElementById("cupgrade"+(j+1)).style.background='#00cc00';
+	   }
+	  if(j < 5  && money >= 0 && money>=500){
+	   	  document.getElementById("cupgrade"+(j+1)).disabled = false;
+	   	document.getElementById("cupgrade"+(j+1)).style.background='initial';
+	   	j++;
+	   }
+	   for(;j<5;j++){
+	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
+	   	document.getElementById("cupgrade"+(j+1)).style.background='#ff0000';
+	   }
 }
 function addmps(){
 	money+=mps;
@@ -229,6 +244,7 @@ function buy(bnum){
 }
 function upgrade(building,upgrade){
 	buildings[building].upgrades++;
+	money-=buildings[building].upgradesPrice;
 	refresh();
 }
 function remove(cname){
