@@ -244,6 +244,7 @@ function buy(bnum){
 
 }
 function calcMPS(){
+	mps=0;
 	for(i=0;i<buildingcount;i++){
 		mps+=buildings[i].mps * (buildings[i].upgrades+1)*buildings[i].count;
 	}
