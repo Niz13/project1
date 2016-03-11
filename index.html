@@ -152,7 +152,8 @@ if(first_flag == null)
   {
    document.getElementById("clickbutton"+(i+1)).disabled = true;
   }
-  document.getElementById("myBar").style.width = 0+"%";
+  diff = (new Date).getTime() - new Date(retrieve("lastsave"));
+   store("diff",diff);
   window.setInterval(function(){
   refresh();
   save();
