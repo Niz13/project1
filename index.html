@@ -50,9 +50,10 @@ var Building = function(name, price,mps,count) {
     this.count = count;
 }
 function load(){
-moneyt = retrieve("money");
-if(moneyt == null)
+first_flag = retrieve("first_flag");
+if(first_flag == null)
   {
+   store("first_flag", "0");
     money = 0;
     mps = 0;
     clicks=0;
@@ -66,7 +67,7 @@ if(moneyt == null)
     
 	document.getElementById("debug").innerHTML = 1;
   }
-  money = parseInt(moneyt);
+  money = parseInt(retrieve("money"));
   mps =  parseInt(retrieve("mps"));
   clicks =  parseInt(retrieve("clicks"));
   building1 = new Building("building1",5,1,parseInt(retrieve("building1count")));
@@ -133,6 +134,7 @@ function clicked() {
 function reset(){
 	money=0;
 	mps=0;
+	clicks=0;
 	remove("money");
 	remove("mps");
 	remove("clicks");
