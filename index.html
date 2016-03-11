@@ -152,7 +152,7 @@ if(first_flag == null)
   {
    document.getElementById("clickbutton"+(i+1)).disabled = true;
   }
-  diff = parseInt((new Date).getTime().getString()) - parseInt(retrieve("lastsave"));
+  diff = parseInt((new Date).getTime().toString()) - parseInt(retrieve("lastsave"));
    store("diff",diff/1000);
   window.setInterval(function(){
   refresh();
