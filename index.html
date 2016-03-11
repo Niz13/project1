@@ -152,8 +152,8 @@ if(first_flag == null)
   {
    document.getElementById("clickbutton"+(i+1)).disabled = true;
   }
-  diff = (new Date).getTime() - new Date(retrieve("lastsave"));
-   store("diff",diff);
+  diff = parseInt((new Date).getTime().getString()) - parseInt(retrieve("lastsave"));
+   store("diff",diff/1000);
   window.setInterval(function(){
   refresh();
   save();
