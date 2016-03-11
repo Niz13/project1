@@ -207,10 +207,12 @@ function refresh(){
 	document.getElementById("debug").innerHTML = 2;
 	document.getElementById("money").innerHTML = money.toFixed(1);
 	document.getElementById("mps").innerHTML = "+"+mps;
+	document.getElementById("clickbutton").value = clickpower+"$";
+		
 		
 }
 function clicked() {
-    money+=1;
+    money+=clickpower;
     clicks++;
 }
 function reset(){
@@ -240,12 +242,17 @@ function calcMPS(){
 	for(i=0;i<buildingcount;i++){
 		mps+=buildings[i].mps * (buildings[i].upgrades+1)*buildings[i].count;
 	}
+	clickpower= (clickupgrades+1);
 }
 function addMPS(){
 	
 	money+=mps;
 }
 function upgrade(building,upgrade){
+	if(buildng ==-1){
+		clickupgrades++;
+		return;
+	}
 	buildings[building].upgrades++;
 	money-=buildings[building].upgradesPrice;
 	refresh();
