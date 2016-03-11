@@ -35,27 +35,27 @@ var Building = function(name, price,mps,count) {
     this.count = count;
 }
 function load(){
-moneyt = getCookie("money");
-mpst = getCookie("mps");
+moneyt = retrieve("money");
+mpst = retrieve("mps");
 if(moneyt == "")
   {
     money = 0;
     mps = 0;
-    setCookie("money", "0", 10);
-    setCookie("mps", "0", 10);
-    setCookie("building1count", "0", 10);
-    setCookie("building2count", "0", 10);
-    setCookie("building3count", "0", 10);
-    setCookie("building4count", "0", 10);
+    store("money", "0", 10);
+    store("mps", "0", 10);
+    store("building1count", "0");
+    store("building2count", "0");
+    store("building3count", "0");
+    store("building4count", "0");
     
 	document.getElementById("debug").innerHTML = 1;
   }
   money = parseInt(moneyt);
   mps =  parseInt(mpst);
-  building1 = new Building("building1",5,1,parseInt(getCookie("building1count")));
-  building2 = new Building("building2",10,2,parseInt(getCookie("building2count")));
-  building3 = new Building("building3",15,3,parseInt(getCookie("building3count")));
-  building4 = new Building("building4",20,4,parseInt(getCookie("building4count")));
+  building1 = new Building("building1",5,1,parseInt(retrieve("building1count")));
+  building2 = new Building("building2",10,2,parseInt(retrieve("building2count")));
+  building3 = new Building("building3",15,3,parseInt(retrieve("building3count")));
+  building4 = new Building("building4",20,4,parseInt(retrieve("building4count")));
     buildings = [building1,building2,building3,building4]
 calcPrices();
 
@@ -80,10 +80,10 @@ function addmps(){
 	money+=mps;
 }
 function save(){
-	 setCookie("money", money.toString(), 10);
-	 setCookie("mps", mps.toString(), 10);
+	 store("money", money.toString());
+	 store("mps", mps.toString());
 	 for(i=0;i<buildingcount;i++){
-	   setCookie("building"+(i+1)+"count", buildings[i].count, 10);
+	   store("building"+(i+1)+"count", buildings[i].count);
 	 }
 
 }
@@ -111,12 +111,12 @@ function clicked() {
 function reset(){
 	money=0;
 	mps=0;
-	setCookie("money", "", 0);
-	setCookie("mps", "", 0);
+	store("money", "", 0);
+	store("mps", "", 0);
 	for(i=0;i<buildingcount;i++){
 		buildings[i].price = buildings[i].init_price;
 		buildings[i].count = 0;
-		 setCookie("building"+(i+1)+"count", "0", 10);
+		 store("building"+(i+1)+"count", "0", 10);
 	     
 	}
 
@@ -128,7 +128,7 @@ function buy(bnum){
     buildings[bnum].count++;
 
 }
-function setCookie(cname,cvalue,exdays) {
+function store(cname,cvalue) {
 	localStorage.setItem(cname, cvalue);
     /*var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -136,7 +136,7 @@ function setCookie(cname,cvalue,exdays) {
     document.cookie = cname+"="+cvalue+"; "+expires;*/
 }
 
-function getCookie(cname) {
+function retrieve(cname) {
     /*var name = cname + "=";
     var ca = document.cookie.split(';');
     for(var i=0; i<ca.length; i++) {
