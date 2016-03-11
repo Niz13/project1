@@ -92,13 +92,14 @@ var mpst;
 var buildings;
 var buildingcount=4;
 
-var Building = function(name, price,mps,count,upgrades) {
+var Building = function(name, price,mps,count,upgrades,upgradesPrice) {
     this.name = name;
     this.price = price;
     this.init_price = price;
     this.mps = mps;
     this.count = count;
     this.upgrades = upgrades;
+    this.upgradesPrice = upgradesPrice;
 }
 function load(){
 first_flag = retrieve("first_flag");
@@ -123,10 +124,10 @@ if(first_flag == null)
   money = parseInt(retrieve("money"));
   mps =  parseInt(retrieve("mps"));
   clicks =  parseInt(retrieve("clicks"));
-  building1 = new Building("building1",5,1,parseInt(retrieve("building1count")),parseInt(retrieve("building1upgrades")));
-  building2 = new Building("building2",10,2,parseInt(retrieve("building2count")),parseInt(retrieve("building2upgrades")));
-  building3 = new Building("building3",15,3,parseInt(retrieve("building3count")),parseInt(retrieve("building3upgrades")));
-  building4 = new Building("building4",20,4,parseInt(retrieve("building4count")),parseInt(retrieve("building4upgrades")));
+  building1 = new Building("building1",5,1,parseInt(retrieve("building1count")),parseInt(retrieve("building1upgrades")),1000);
+  building2 = new Building("building2",10,2,parseInt(retrieve("building2count")),parseInt(retrieve("building2upgrades")),2000);
+  building3 = new Building("building3",15,3,parseInt(retrieve("building3count")),parseInt(retrieve("building3upgrades")),3000);
+  building4 = new Building("building4",20,4,parseInt(retrieve("building4count")),parseInt(retrieve("building4upgrades")),4000);
   buildings = [building1,building2,building3,building4]
   calcPrices();
   handleupgrades();
@@ -152,6 +153,13 @@ function handleupgrades(){
 	   for(j=0;j<buildings[i].upgrades;j++){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = true;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#00cc00';
+	   }
+	   if(j < 5  && money >= 0 && money>=buildings[i].upgradePrice)
+	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = false;
+	   	j++;
+	   for(;j<5;j++){
+	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = true;
+	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#ff0000';
 	   }
 	 }
 }
@@ -186,7 +194,7 @@ function refresh(){
 	document.getElementById("money").innerHTML = money.toFixed(1);
 	document.getElementById("mps").innerHTML = "+"+mps;
 
-	   
+	handleupgrades();
 		
 }
 function clicked() {
@@ -204,6 +212,8 @@ function reset(){
 		buildings[i].price = buildings[i].init_price;
 		buildings[i].count = 0;
 		remove("building"+(i+1)+"count");
+		remove("building"+(i+1)+"upgrades");
+		
 	}
 
 }
