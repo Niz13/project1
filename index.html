@@ -140,9 +140,10 @@ if(first_flag == null)
   refresh();
   save();
   handleupgrades();
+  calcMPS();
 }, 100);
   window.setInterval(function(){
-  calcMPS();
+  addMPS();
 }, 1000);
 }
 function calcPrices(){
@@ -239,6 +240,9 @@ function calcMPS(){
 	for(i=0;i<buildingcount;i++){
 		mps+=buildings[i].mps * (buildings[i].upgrades+1)*buildings[i].count;
 	}
+}
+function addMPS(){
+	
 	money+=mps;
 }
 function upgrade(building,upgrade){
