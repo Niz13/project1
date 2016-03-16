@@ -222,7 +222,7 @@ function refresh(){
 		document.getElementById("clickbutton"+(i+1)).disabled = false;
 	else 
 		document.getElementById("clickbutton"+(i+1)).disabled = true;
-	document.getElementById("building"+(i+1)+"price").innerHTML = buildings[i].price.toFixed(1)+"&nbsp;&nbsp;	";
+	document.getElementById("building"+(i+1)+"price").innerHTML = numberToString(buildings[i].price)+"&nbsp;&nbsp;	";
 	document.getElementById("building"+(i+1)+"count").innerHTML = buildings[i].count;
 	}
 	document.getElementById("debug").innerHTML = 2;
@@ -288,9 +288,9 @@ function numberToString(number){
 	if (number < 1000)
 		return number.toFixed(1);
 	if(number < 1000000)
-		return (number%1000).toFixed(1)+"K";
+		return (number/1000).toFixed(1)+"K";
 	if(number < 1000000000)
-		return (number%1000000).toFixed(1)+"M";
+		return (number/1000000).toFixed(1)+"M";
 }
 function remove(cname){
 	localStorage.removeItem(cname);
