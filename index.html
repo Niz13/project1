@@ -28,7 +28,9 @@ td {
 </div><br><br>
   </center>
   <h1>Buildings:</h1>
- <table id="toto">
+  <div style="width: 100%;">
+   <div style="float:left; width: 80%">
+   	<table>
   <tr>
   <td><input type="button" id="clickbutton1" value="building 1" onclick="buy(0)"></td>
   <td> <p id="building1price" style="display:inline">5 </p></td>
@@ -93,7 +95,14 @@ td {
   <td> <input type="button" id="b4upgrade5" value="5" onclick="upgrade(3,5)" title="4000"></td>
   </tr>
   </table>
-    <h1>Achievements:</h1>
+   
+  <input type="button" id="stats" value="stats" onclick="stats()"><br>
+  <input type="button" id="resetbutton" value="reset" onclick="reset()"><br>
+  
+  <p id="debug">
+   </div>
+   <div style="float:right;">
+   	 <h1>Achievements:</h1>
   <table>
   <td> <input type="button" id="ach00" value="B"  title="Click 100 times!" disabled></td>
   <td> <input type="button" id="ach01" value="S"  title="Click 2K times!" disabled></td>
@@ -130,10 +139,10 @@ td {
   <td> <input type="button" id="ach44" value="U"  title="Buy 500 of Building 4!" disabled></td>
   </tr>
   </table>
-  <input type="button" id="stats" value="stats" onclick="stats()"><br>
-  <input type="button" id="resetbutton" value="reset" onclick="reset()"><br>
-  
-  <p id="debug">
+   </div>
+</div>
+<div style="clear:both"></div>
+ 
   </body>
 </html>
 <script>
