@@ -240,9 +240,9 @@ function handleupgrades(){
 }
 function AchsTemplateBuilding(i,value,row){
 		if(buildings[i].count>=value)
-			document.getElementById("ach"+(i+1)+""+row).style.background='#00cc00';
+			document.getElementById("ach"+i+""+row).style.background='#00cc00';
 		else
-			document.getElementById("ach"+(i+1)+""+row).style.background='#ff0000';
+			document.getElementById("ach"+i+""+row).style.background='#ff0000';
 }
 function AchsTemplateClicks(value,row){
 		if(clicks>value)
@@ -251,7 +251,7 @@ function AchsTemplateClicks(value,row){
 			document.getElementById("ach0"+row).style.background='#ff0000';
 }
 function handleAchs(){
-	for(i=0;i<buildingcount;i++){
+	for(i=1;i<=buildingcount;i++){
 		AchsTemplateBuilding(i,10,0);
 		AchsTemplateBuilding(i,50,1);
 		AchsTemplateBuilding(i,100,2);
