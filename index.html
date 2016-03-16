@@ -28,7 +28,7 @@ td {
 </div><br><br>
   </center>
   <h1>Buildings:</h1>
- <table>
+ <table id="toto">
   <tr>
   <td><input type="button" id="clickbutton1" value="building 1" onclick="buy(0)"></td>
   <td> <p id="building1price" style="display:inline">5 </p></td>
@@ -157,6 +157,7 @@ var Building = function(name, price,mps,count,upgrades,upgradesPrice) {
 }
 function load(){
 first_flag = retrieve("first_flag");
+document.getElementById("toto").style.visibility = "hidden";
 if(first_flag == null)
   {
     store("first_flag", "0");
