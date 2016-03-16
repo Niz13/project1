@@ -96,10 +96,10 @@ td {
     <h1>Achievements:</h1>
   <table>
   <td> <input type="button" id="ach00" value="B"  title="Click 100 times!" disabled></td>
-  <td> <input type="button" id="ach01" value="S"  title="Click 10K times!" disabled></td>
-  <td> <input type="button" id="ach02" value="G"  title="Click 150K times!" disabled></td>
-  <td> <input type="button" id="ach03" value="P" title="Click 500K times" disabled></td>
-  <td> <input type="button" id="ach04 "value="U"  title="Click 1M times" disabled></td>
+  <td> <input type="button" id="ach01" value="S"  title="Click 2K times!" disabled></td>
+  <td> <input type="button" id="ach02" value="G"  title="Click 10K times!" disabled></td>
+  <td> <input type="button" id="ach03" value="P" title="Click 25K times" disabled></td>
+  <td> <input type="button" id="ach04 "value="U"  title="Click 50K times" disabled></td>
   </tr>
    <tr>
   <td> <input type="button" id="ach10" value="B"  title="Buy 10 of Building 1!" disabled></td>
@@ -238,14 +238,31 @@ function handleupgrades(){
 	   	document.getElementById("cupgrade"+(j+1)).style.background='#ff0000';
 	   }
 }
+function AchsTemplateBuilding(i,value,row){
+		if(buildings[i].count>=value)
+			document.getElementById("ach"+(i+1)+""+row).style.background='#00cc00';
+		else
+			document.getElementById("ach"+(i+1)+""+row).style.background='#ff0000';
+}
+function AchsTemplateClicks(value,row){
+		if(clicks>value)
+			document.getElementById("ach0"+row).style.background='#00cc00';
+		else
+			document.getElementById("ach0"+row).style.background='#ff0000';
+}
 function handleAchs(){
 	for(i=0;i<buildingcount;i++){
-		if(buildings[i].count>=10)
-			document.getElementById("ach1"+i).style.background='#00cc00';
-		else
-			document.getElementById("ach1"+i).style.background='#ff0000';
-			
+		AchsTemplateBuilding(i,10,0);
+		AchsTemplateBuilding(i,50,1);
+		AchsTemplateBuilding(i,100,3);
+		AchsTemplateBuilding(i,200,4);
+		AchsTemplateBuilding(i,500,5);
 	 }
+	 AchsTemplateClicks(100,0);
+	 AchsTemplateClicks(2000,1);
+	 AchsTemplateClicks(10000,2);
+	 AchsTemplateClicks(25000,3);
+	 AchsTemplateClicks(50000,4);
 }
 function save(){
          store("lastsave",(new Date).getTime().toString());
