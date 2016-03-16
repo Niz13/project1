@@ -394,12 +394,12 @@ function handleupgrades(){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = true;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#00cc00';
 	   }
-	   if(j <= buildingcount  && money >= 0 && money>=buildings[i].upgradesPrice){
+	   if(j < buildingcount  && money >= 0 && money>=buildings[i].upgradesPrice){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = false;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='initial';
 	   	j++;
 	   }
-	   for(;j<=buildingcount;j++){
+	   for(;j<buildingcount;j++){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = true;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#ff0000';
 	   }
@@ -408,12 +408,12 @@ function handleupgrades(){
 	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='#00cc00';
 	   }
-	  if(j <= buildingcount  && money >= 0 && money>=500){
+	  if(j < buildingcount  && money >= 0 && money>=500){
 	   	  document.getElementById("cupgrade"+(j+1)).disabled = false;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='initial';
 	   	j++;
 	   }
-	   for(;j<=buildingcount;j++){
+	   for(;j<buildingcount;j++){
 	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='#ff0000';
 	   }
