@@ -215,7 +215,7 @@ var clickUpgrades;
 var clickPower;
 var mpst;
 var buildings;
-var buildingcount=4;
+var buildingcount=10;
 
 var Building = function(name, price,mps,count,upgrades,upgradesPrice) {
     this.name = name;
@@ -234,14 +234,10 @@ if(first_flag == null)
     store("money", "0");
     store("clicks", "0");
     store("clickUpgrades", "0");
-    store("building1count", "0");
-    store("building1upgrades", "0");
-    store("building2count", "0");
-    store("building2upgrades", "0");
-    store("building3count", "0");
-    store("building3upgrades", "0");
-    store("building4count", "0");
-    store("building4upgrades", "0");
+    for(i=0;i<buildingCount;i++){
+    store("building"+(i+1)+"count", "0");
+    store("building"+(i+1)+"upgrades", "0");
+    }
     
 	document.getElementById("debug").innerHTML = 1;
   }
@@ -252,7 +248,13 @@ if(first_flag == null)
   building2 = new Building("building2",10,2,parseInt(retrieve("building2count")),parseInt(retrieve("building2upgrades")),2000);
   building3 = new Building("building3",15,3,parseInt(retrieve("building3count")),parseInt(retrieve("building3upgrades")),3000);
   building4 = new Building("building4",20,4,parseInt(retrieve("building4count")),parseInt(retrieve("building4upgrades")),4000);
-  buildings = [building1,building2,building3,building4]
+  building5 = new Building("building5",40,5,parseInt(retrieve("building5count")),parseInt(retrieve("building5upgrades")),5000);
+  building6 = new Building("building6",1000,20,parseInt(retrieve("building6count")),parseInt(retrieve("building6upgrades")),10000);
+  building7 = new Building("building7",100000,100,parseInt(retrieve("building7count")),parseInt(retrieve("building7upgrades")),20000);
+  building8 = new Building("building8",1000000,500,parseInt(retrieve("building8count")),parseInt(retrieve("building8upgrades")),300000);
+  building9 = new Building("building9",100000000,1000,parseInt(retrieve("building9count")),parseInt(retrieve("building9upgrades")),400000);
+  building10 = new Building("building10",1000000000,5000,parseInt(retrieve("building10count")),parseInt(retrieve("building10upgrades")),5000000);
+  buildings = [building1,building2,building3,building4,building5,building6,building7,building8,building9,building10]
   calcPrices();
   calcMPS();
   handleupgrades();
