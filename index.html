@@ -226,7 +226,7 @@ function refresh(){
 	document.getElementById("building"+(i+1)+"count").innerHTML = buildings[i].count;
 	}
 	document.getElementById("debug").innerHTML = 2;
-	document.getElementById("money").innerHTML = numberToString(money.toFixed(1));
+	document.getElementById("money").innerHTML = numberToString(money);
 	document.getElementById("mps").innerHTML = "+"+mps;
 	document.getElementById("clickbutton").value = clickpower+"$";
 		
@@ -286,11 +286,11 @@ function upgrade(building,upgrade){
 }
 function numberToString(number){
 	if (number < 1000)
-		return number;
+		return number.toFixed(1);
 	if(number < 1000000)
-		return number%1000+"K";
+		return (number%1000).toFixed(1)+"K";
 	if(number < 1000000000)
-		return number%1000000+"M";
+		return (number%1000000).toFixed(1)+"M";
 }
 function remove(cname){
 	localStorage.removeItem(cname);
