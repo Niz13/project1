@@ -196,6 +196,7 @@ if(first_flag == null)
   refresh();
   save();
   handleupgrades();
+  handleAchs();
   calcMPS();
 }, 100);
   window.setInterval(function(){
@@ -236,6 +237,15 @@ function handleupgrades(){
 	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='#ff0000';
 	   }
+}
+function handleAchs(){
+	for(i=0;i<buildingcount;i++){
+		if(buildings[i].count>=10)
+			document.getElementById("ach1"+i).style.background='#00cc00';
+		else
+			document.getElementById("ach1"+i).style.background='#ff0000';
+			
+	 }
 }
 function save(){
          store("lastsave",(new Date).getTime().toString());
