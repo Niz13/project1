@@ -35,21 +35,45 @@ td {
   <td><input type="button" id="clickbutton1" value="building 1" onclick="buy(0)"></td>
   <td> <p id="building1price" style="display:inline">5 </p></td>
   <td><p id="building1count"style="display:inline"> 0</p><br></td>
+  <td><input type="button" id="clickbutton6" value="building 6" onclick="buy(5)"></td>
+  <td><p id="building6price" style="display:inline">1000 </p></td>
+  <td><p id="building6count"style="display:inline"> 0</p><br></td>
+  
   </tr>
   <tr>
   <td><input type="button" id="clickbutton2" value="building 2" onclick="buy(1)"></td>
   <td><p id="building2price" style="display:inline">10 </p></td>
   <td><p id="building2count"style="display:inline"> 0</p><br></td>
+    <td><input type="button" id="clickbutton7" value="building 7" onclick="buy(6)"></td>
+  <td><p id="building7price" style="display:inline">100K </p></td>
+  <td><p id="building7count"style="display:inline"> 0</p><br></td>
   </tr>
+  
   <tr>
   <td><input type="button" id="clickbutton3" value="building 3" onclick="buy(2)"></td>
   <td><p id="building3price" style="display:inline">15 </p></td>
   <td><p id="building3count"style="display:inline"> 0</p><br></td>
+    <td><input type="button" id="clickbutton8" value="building 8" onclick="buy(7)"></td>
+  <td><p id="building8price" style="display:inline">1M </p></td>
+  <td><p id="building8count"style="display:inline"> 0</p><br></td>
   </tr>
+  
   <tr>
   <td><input type="button" id="clickbutton4" value="building 4" onclick="buy(3)"></td>
   <td><p id="building4price" style="display:inline">20 </p></td>
   <td><p id="building4count"style="display:inline"> 0</p><br></td>
+      <td><input type="button" id="clickbutton9" value="building 9" onclick="buy(8)"></td>
+  <td><p id="building9price" style="display:inline">100M </p></td>
+  <td><p id="building9count"style="display:inline"> 0</p><br></td>
+  </tr>
+  
+    <tr>
+  <td><input type="button" id="clickbutton5" value="building 5" onclick="buy(4)"></td>
+  <td><p id="building5price" style="display:inline">40 </p></td>
+  <td><p id="building5count"style="display:inline"> 0</p><br></td>
+      <td><input type="button" id="clickbutton10" value="building 10" onclick="buy(9)"></td>
+  <td><p id="building10price" style="display:inline">1B </p></td>
+  <td><p id="building10count"style="display:inline"> 0</p><br></td>
   </tr>
   </table>
   <h1>Upgrades:</h1>
@@ -60,7 +84,12 @@ td {
   <td> <input type="button" id="cupgrade2" value="2" onclick="upgrade(-1,2)" title="500"></td>
   <td> <input type="button" id="cupgrade3" value="3" onclick="upgrade(-1,3)" title="500"></td>
   <td> <input type="button" id="cupgrade4" value="4" onclick="upgrade(-1,4)" title="500"></td>
-  <td> <input type="button" id="cupgrade5"value="5" onclick="upgrade(-1,5)" title="500"></td>
+  <td> <input type="button" id="cupgrade5" value="5" onclick="upgrade(-1,5)" title="500"></td>
+  <td> <input type="button" id="cupgrade6" value="6" onclick="upgrade(-1,6)" title="500"></td>
+  <td> <input type="button" id="cupgrade7" value="7" onclick="upgrade(-1,7)" title="500"></td>
+  <td> <input type="button" id="cupgrade8" value="8" onclick="upgrade(-1,8)" title="500"></td>
+  <td> <input type="button" id="cupgrade9" value="9" onclick="upgrade(-1,9)" title="500"></td>
+  <td> <input type="button" id="cupgrade10"value="10" onclick="upgrade(-1,10)" title="500"></td>
   </tr>
    <tr>
   <td>Building 1</td>
@@ -69,6 +98,11 @@ td {
   <td> <input type="button" id="b1upgrade3" value="3" onclick="upgrade(0,3)" title="1000"></td>
   <td> <input type="button" id="b1upgrade4" value="4" onclick="upgrade(0,4)" title="1000"></td>
   <td> <input type="button" id="b1upgrade5" value="5" onclick="upgrade(0,5)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade6" value="6" onclick="upgrade(0,6)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade7" value="7" onclick="upgrade(0,7)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade8" value="8" onclick="upgrade(0,8)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade9" value="9" onclick="upgrade(0,9)" title="1000"></td>
+  <td> <input type="button" id="b1upgrade10" value="10" onclick="upgrade(0,10)" title="1000"></td>
   </tr>
   <tr>
   <td>Building 2</td>
@@ -77,6 +111,11 @@ td {
   <td> <input type="button" id="b2upgrade3" value="3" onclick="upgrade(1,3)" title="2000"></td>
   <td> <input type="button" id="b2upgrade4" value="4" onclick="upgrade(1,4)" title="2000"></td>
   <td> <input type="button" id="b2upgrade5" value="5" onclick="upgrade(1,5)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade6" value="6" onclick="upgrade(1,6)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade7" value="7" onclick="upgrade(1,7)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade8" value="8" onclick="upgrade(1,8)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade9" value="9" onclick="upgrade(1,9)" title="2000"></td>
+  <td> <input type="button" id="b2upgrade10" value="10" onclick="upgrade(1,10)" title="2000"></td>
   </tr>
    <tr>
   <td>Building 3</td>
@@ -85,6 +124,11 @@ td {
   <td> <input type="button" id="b3upgrade3" value="3" onclick="upgrade(2,3)" title="3000"></td>
   <td> <input type="button" id="b3upgrade4" value="4" onclick="upgrade(2,4)" title="3000"></td>
   <td> <input type="button" id="b3upgrade5" value="5" onclick="upgrade(2,5)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade6" value="6" onclick="upgrade(2,6)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade7" value="7" onclick="upgrade(2,7)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade8" value="8" onclick="upgrade(2,8)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade9" value="9" onclick="upgrade(2,9)" title="3000"></td>
+  <td> <input type="button" id="b3upgrade10" value="10" onclick="upgrade(2,10)" title="3000"></td>
   </tr>
      <tr>
   <td>Building 4</td>
@@ -93,6 +137,24 @@ td {
   <td> <input type="button" id="b4upgrade3" value="3" onclick="upgrade(3,3)" title="4000"></td>
   <td> <input type="button" id="b4upgrade4" value="4" onclick="upgrade(3,4)" title="4000"></td>
   <td> <input type="button" id="b4upgrade5" value="5" onclick="upgrade(3,5)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade6" value="6" onclick="upgrade(3,6)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade7" value="7" onclick="upgrade(3,7)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade8" value="8" onclick="upgrade(3,8)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade9" value="9" onclick="upgrade(3,9)" title="4000"></td>
+  <td> <input type="button" id="b4upgrade10" value="10" onclick="upgrade(3,10)" title="4000"></td>
+  </tr>
+       <tr>
+  <td>Building 5</td>
+  <td> <input type="button" id="b5upgrade1" value="1" onclick="upgrade(4,1)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade2" value="2" onclick="upgrade(4,2)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade3" value="3" onclick="upgrade(4,3)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade4" value="4" onclick="upgrade(4,4)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade5" value="5" onclick="upgrade(4,5)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade6" value="6" onclick="upgrade(4,6)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade7" value="7" onclick="upgrade(4,7)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade8" value="8" onclick="upgrade(4,8)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade9" value="9" onclick="upgrade(4,9)" title="5000"></td>
+  <td> <input type="button" id="b5upgrade10" value="10" onclick="upgrade(4,10)" title="5000"></td>
   </tr>
   </table>
    
