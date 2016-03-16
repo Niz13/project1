@@ -265,6 +265,48 @@ td {
   <td> <input type="button" id="ach43" value="P" title="Buy 200 of Building 4!" disabled></td>
   <td> <input type="button" id="ach44" value="U"  title="Buy 500 of Building 4!" disabled></td>
   </tr>
+       <tr>
+  <td> <input type="button" id="ach50" value="B"  title="Buy 10 of Building 5!" disabled></td>
+  <td> <input type="button" id="ach51" value="S"  title="Buy 50 of Building 5!" disabled></td>
+  <td> <input type="button" id="ach52" value="G"  title="Buy 100 of Building 5!" disabled></td>
+  <td> <input type="button" id="ach53" value="P" title="Buy 200 of Building 5!" disabled></td>
+  <td> <input type="button" id="ach54" value="U"  title="Buy 500 of Building 5!" disabled></td>
+  </tr>
+       <tr>
+  <td> <input type="button" id="ach60" value="B"  title="Buy 10 of Building 6!" disabled></td>
+  <td> <input type="button" id="ach61" value="S"  title="Buy 50 of Building 6!" disabled></td>
+  <td> <input type="button" id="ach62" value="G"  title="Buy 100 of Building 6!" disabled></td>
+  <td> <input type="button" id="ach63" value="P" title="Buy 200 of Building 6!" disabled></td>
+  <td> <input type="button" id="ach64" value="U"  title="Buy 500 of Building 6!" disabled></td>
+  </tr>
+       <tr>
+  <td> <input type="button" id="ach70" value="B"  title="Buy 10 of Building 7!" disabled></td>
+  <td> <input type="button" id="ach71" value="S"  title="Buy 50 of Building 7!" disabled></td>
+  <td> <input type="button" id="ach72" value="G"  title="Buy 100 of Building 7!" disabled></td>
+  <td> <input type="button" id="ach73" value="P" title="Buy 200 of Building 7!" disabled></td>
+  <td> <input type="button" id="ach74" value="U"  title="Buy 500 of Building 7!" disabled></td>
+  </tr>
+       <tr>
+  <td> <input type="button" id="ach80" value="B"  title="Buy 10 of Building 8!" disabled></td>
+  <td> <input type="button" id="ach81" value="S"  title="Buy 50 of Building 8!" disabled></td>
+  <td> <input type="button" id="ach82" value="G"  title="Buy 100 of Building 8!" disabled></td>
+  <td> <input type="button" id="ach83" value="P" title="Buy 200 of Building 8!" disabled></td>
+  <td> <input type="button" id="ach84" value="U"  title="Buy 500 of Building 8!" disabled></td>
+  </tr>
+       <tr>
+  <td> <input type="button" id="ach90" value="B"  title="Buy 10 of Building 9!" disabled></td>
+  <td> <input type="button" id="ach91" value="S"  title="Buy 50 of Building 9!" disabled></td>
+  <td> <input type="button" id="ach92" value="G"  title="Buy 100 of Building 9!" disabled></td>
+  <td> <input type="button" id="ach93" value="P" title="Buy 200 of Building 9!" disabled></td>
+  <td> <input type="button" id="ach94" value="U"  title="Buy 500 of Building 9!" disabled></td>
+  </tr>
+       <tr>
+  <td> <input type="button" id="ach100" value="B"  title="Buy 10 of Building 10!" disabled></td>
+  <td> <input type="button" id="ach101" value="S"  title="Buy 50 of Building 10!" disabled></td>
+  <td> <input type="button" id="ach102" value="G"  title="Buy 100 of Building 10!" disabled></td>
+  <td> <input type="button" id="ach103" value="P" title="Buy 200 of Building 10!" disabled></td>
+  <td> <input type="button" id="ach104" value="U"  title="Buy 500 of Building 10!" disabled></td>
+  </tr>
   </table>
    </div>
 </div>
@@ -352,12 +394,12 @@ function handleupgrades(){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = true;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#00cc00';
 	   }
-	   if(j < 5  && money >= 0 && money>=buildings[i].upgradesPrice){
+	   if(j <= buildingcount  && money >= 0 && money>=buildings[i].upgradesPrice){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = false;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='initial';
 	   	j++;
 	   }
-	   for(;j<5;j++){
+	   for(;j<=buildingcount;j++){
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).disabled = true;
 	   	document.getElementById("b"+(i+1)+"upgrade"+(j+1)).style.background='#ff0000';
 	   }
@@ -366,12 +408,12 @@ function handleupgrades(){
 	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='#00cc00';
 	   }
-	  if(j < 5  && money >= 0 && money>=500){
+	  if(j <= buildingcount  && money >= 0 && money>=500){
 	   	  document.getElementById("cupgrade"+(j+1)).disabled = false;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='initial';
 	   	j++;
 	   }
-	   for(;j<5;j++){
+	   for(;j<=buildingcount;j++){
 	   	document.getElementById("cupgrade"+(j+1)).disabled = true;
 	   	document.getElementById("cupgrade"+(j+1)).style.background='#ff0000';
 	   }
