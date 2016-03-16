@@ -99,7 +99,7 @@ td {
   <td> <input type="button" id="ach01" value="S"  title="Click 2K times!" disabled></td>
   <td> <input type="button" id="ach02" value="G"  title="Click 10K times!" disabled></td>
   <td> <input type="button" id="ach03" value="P" title="Click 25K times" disabled></td>
-  <td> <input type="button" id="ach04 "value="U"  title="Click 50K times" disabled></td>
+  <td> <input type="button" id="ach04" "value="U"  title="Click 50K times" disabled></td>
   </tr>
    <tr>
   <td> <input type="button" id="ach10" value="B"  title="Buy 10 of Building 1!" disabled></td>
@@ -240,18 +240,18 @@ function handleupgrades(){
 }
 function AchsTemplateBuilding(i,value,row){
 		if(buildings[i].count>=value)
-			document.getElementById("ach"+i+""+row).style.background='#00cc00';
+			document.getElementById("ach"+(i+1)+""+row).style.background='#00cc00';
 		else
-			document.getElementById("ach"+i+""+row).style.background='#ff0000';
+			document.getElementById("ach"+(i+1)+""+row).style.background='#ff0000';
 }
 function AchsTemplateClicks(value,row){
-		if(clicks>value)
+		if(clicks>=value)
 			document.getElementById("ach0"+row).style.background='#00cc00';
 		else
 			document.getElementById("ach0"+row).style.background='#ff0000';
 }
 function handleAchs(){
-	for(i=1;i<=buildingcount;i++){
+	for(i=0;i<buildingcount;i++){
 		AchsTemplateBuilding(i,10,0);
 		AchsTemplateBuilding(i,50,1);
 		AchsTemplateBuilding(i,100,2);
