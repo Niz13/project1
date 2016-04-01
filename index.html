@@ -356,6 +356,11 @@ if(first_flag == null)
   money = parseInt(retrieve("money"));
   clicks =  parseInt(retrieve("clicks"));
   clickUpgrades = parseInt(retrieve("clickUpgrades"));
+  
+  
+  document.getElementById("resetbutton").animationStart = "fadeIn";
+  
+  
   building1 = new Building("building1",5,1,parseInt(retrieve("building1count")),parseInt(retrieve("building1upgrades")),1000);
   building2 = new Building("building2",10,2,parseInt(retrieve("building2count")),parseInt(retrieve("building2upgrades")),2000);
   building3 = new Building("building3",15,3,parseInt(retrieve("building3count")),parseInt(retrieve("building3upgrades")),3000);
